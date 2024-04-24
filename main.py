@@ -6,7 +6,7 @@ from zhipuai import ZhipuAI
 from flask import Flask, request, render_template_string
 
 group_messages = {}
-specific_group_ids = []#填写qq号
+specific_group_ids = []# 这里填入你的群号
 
 
 async def handle_message(data, group_id):
@@ -52,13 +52,13 @@ HTML_TEMPLATE = '''
     <h4>询问</h4>
     <h5>密码</h5>
     <form action="/submit_ask" method="post">
-        <input type="text" name="input12">
+        <input type="text" name="input1">
     <h5>大群填1，小群填2</h5>
-        <input type="text" name="input22">
+        <input type="text" name="input2">
     <h5>装载条数（<500）</h5>
-        <input type="text" name="input32">
+        <input type="text" name="input3">
     <h5>询问内容</h5>
-        <input type="text" name="input42">
+        <input type="text" name="input4">
         <button type="submit">提交</button>
     </form>
 </body>
@@ -66,7 +66,7 @@ HTML_TEMPLATE = '''
 '''
 
 
-@app.route('/')
+@app.route('/home')
 def index():
     return render_template_string(HTML_TEMPLATE)
 
@@ -78,11 +78,11 @@ def submit_sum():
         input_data2 = request.form.get('input2')
         input_data3 = int(request.form.get('input3'))
         if input_data2 == "2":
-            group_id_choose = #填写群号
+            group_id_choose = # 这里填入你的群号
         elif input_data2 == "1":
-            group_id_choose = #填写群号
+            group_id_choose = # 这里填入你的群号
         group_messages_choose = str(group_messages[group_id_choose][-input_data3:])
-        client = ZhipuAI(api_key="")#填写APIKEY
+        client = ZhipuAI(api_key="")# 这里填入智谱AI APIKEY
         response = client.chat.completions.create(
             model="glm-3-turbo",
             messages=[{"role": "system", "content": "这是一个群聊的聊天记录，你需要进行简洁、全面的总结"},
@@ -109,17 +109,17 @@ def submit_sum():
 
 @app.route('/submit_ask', methods=['POST'])
 def submit_ask():
-    input_data1 = request.form.get('input12')
+    input_data1 = request.form.get('input1')
     if input_data1 == "12345":
-        input_data2 = request.form.get('input22')
-        input_data3 = int(request.form.get('input32'))
+        input_data2 = request.form.get('input2')
+        input_data3 = int(request.form.get('input3'))
         if input_data2 == "2":
-            group_id_choose = #填写群号
+            group_id_choose = # 这里填入你的群号
         elif input_data2 == "1":
-            group_id_choose = #填写群号
+            group_id_choose = # 这里填入你的群号
         group_messages_choose = str(group_messages[group_id_choose][-input_data3:])
-        user_ask = request.form.get('input42')
-        client = ZhipuAI(api_key="")#填写APIKEY
+        user_ask = request.form.get('input4')
+        client = ZhipuAI(api_key="")# 这里填入智谱AI APIKEY
         response = client.chat.completions.create(
             model="glm-3-turbo",
             messages=[{"role": "system", "content": "这是一个群聊的聊天记录，用户提问在最后，你需要精准回答提问"},
