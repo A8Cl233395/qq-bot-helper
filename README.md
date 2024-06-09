@@ -1,7 +1,7 @@
 # qq-bot-helper
 为QQ机器人打造的程序
 
-搭配[https://github.com/Mrs4s/go-cqhttp](https://github.com/LLOneBot/LLOneBot)使用
+搭配[https://github.com/LLOneBot/LLOneBot](https://github.com/LLOneBot/LLOneBot)使用
 
 使用websocket universal 8080端口
 
