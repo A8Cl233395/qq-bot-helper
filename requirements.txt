@@ -1,0 +1,8 @@
+zhipuai
+azure-cognitiveservices-vision-computervision
+pillow
+asyncio
+websockets
+requests
+keyboard
+dashscore
