@@ -5,4 +5,4 @@ asyncio
 websockets
 requests
 keyboard
-dashscore
+dashscope
